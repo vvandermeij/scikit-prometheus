@@ -31,7 +31,7 @@ def read(fname):
 setup(
     name="scikit-prometheus",
     version=0.1,
-    description="Make it easy to add prometheus metrics to your sklearn models",
+    description="Make it easy to add prometheus metrics to your sklearn tree",
     author="Matthijs Brouns",
     packages=find_packages("src"),
     package_dir={"": "src"},
