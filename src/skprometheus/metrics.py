@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 
-from prometheus_client import Counter, Histogram
+from prometheus_client import Counter, Histogram, Gauge
 
 
 class _MetricRegistry:
@@ -25,6 +25,9 @@ class _MetricRegistry:
             **metric_kwargs
             )
         )
+
+    def add_gauge(self, name, description, *, additional_labels=None):
+        self._add_metric(Gauge, name, description, additional_labels=additional_labels)
 
     def add_histogram(self, name, description, *, buckets, additional_labels=None):
         self._add_metric(Histogram, name, description, additional_labels=additional_labels, buckets=buckets)
